@@ -1,0 +1,59 @@
+body{
+  background-color: #f5edda;
+}
+.container{
+  height: 75vh;
+  padding: 5em;
+}
+
+p{
+  font-size: 1.5rem;
+}
+
+.menu-options{
+  padding: 1em;
+}
+
+.menu-options a{
+  color: #000;
+  text-decoration: none;
+  margin-right:2.5em;
+  font-size: 1.25em;
+}
+
+#menu-bar{
+  height: 3.5em;
+  padding-top: 1em;
+  padding-left: 1em;
+  position: fixed;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: inherit;
+}
+.logo{
+  height: inherit;
+}
+
+.logo img{
+  height: inherit;
+}
+
+.icon{
+  margin-top: 50px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+.display-1{
+  font-size: 6.5rem;
+  font-weight: bold;
+}
+
+
+.landing-text{
+  margin-top: 29.5%;
+  font-size: 1.5rem;
+}
