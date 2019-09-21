@@ -81,3 +81,19 @@ p{
   margin-top: 29.5%;
   font-size: 1.5rem;
 }
+
+.modal-container{
+  width: 100vw;
+  height: 100vh;
+  padding: 5%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+}
+
+.modal-box{
+  height: 35em;
+  width: 100%;
+  background-color: white;
+}

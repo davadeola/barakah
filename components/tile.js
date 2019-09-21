@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Head from 'next/head'
 import Nav from '../components/nav'
 import Layout from '../components/Layout'
-
+import Modal from '../components/modal'
 
 
 const Tile = (props) => (
@@ -18,8 +18,9 @@ const Tile = (props) => (
             <p>{props.name}</p>
         </div>
           <div className="row">
-            <button className="btn cat-btn">View details</button>
+            <button className="btn cat-btn" onClick={props.raiseModal}>View details</button>
           </div>
+        
       </div>
 
 

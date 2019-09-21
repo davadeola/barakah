@@ -6,6 +6,7 @@ import Layout from '../components/Layout'
 import Landing from '../components/landing'
 import Contact from '../components/contact'
 import 'isomorphic-fetch'
+import Modal from '../components/modal'
 import Catalogue from '../components/catalogue'
 
 
@@ -17,6 +18,17 @@ class Home extends React.Component{
     return {dummy: dummy}
   }
 
+state={
+  showModal: false
+}
+
+raiseModal=()=>{
+  this.setState({showModal: true});
+}
+
+dropModal=()=>{
+  this.setState({showModal: false});
+}
 
 
 
@@ -26,7 +38,8 @@ class Home extends React.Component{
     return(
       <Layout>
         <Landing/>
-        <Catalogue data={this.props.dummy}/>
+        {this.state.showModal && <Modal dropModal={this.dropModal}/>}
+        <Catalogue data={this.props.dummy} raiseModal={this.raiseModal} />
         <Contact/>
       </Layout>
     )
