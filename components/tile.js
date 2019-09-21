@@ -5,15 +5,20 @@ import Nav from '../components/nav'
 import Layout from '../components/Layout'
 
 const Tile = (props) => (
-  <Layout>
+
     <div className="col-md-4">
       <div>
-          <img src="static/images/jar.png" alt=""/>
+          <img src={props.image} alt=""/>
+          <p>{props.name}</p>
+
+          <div className="row">
+            <button className="btn">View details</button>
+          </div>
       </div>
 
     </div>
 
-  </Layout>
+
 )
 
 export default Tile

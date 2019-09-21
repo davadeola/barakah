@@ -1,0 +1,34 @@
+{
+  "products":[
+    {
+      "name":"Peanut butter with sesame",
+      "Lgprice":350,
+      "Mdprice":200,
+      "accent":"#dc3f32",
+      "vitamins":"20%",
+      "minerals":"20%",
+      "fatty acids":"50%",
+      "starch":"60%"
+    },
+    {
+      "name":"Peanut butter",
+      "Lgprice":350,
+      "Mdprice":200,
+      "accent":"#519514",
+      "vitamins":"20%",
+      "minerals":"10%",
+      "fatty acids":"50%",
+      "starch":"21%"
+    },
+    {
+      "name":"Peanut butter mix with cashew nuts",
+      "Lgprice":350,
+      "Mdprice":200,
+      "accent":"#da8a30",
+      "vitamins":"20%",
+      "minerals":"10%",
+      "fatty acids":"50%",
+      "starch":"21%"
+    }
+  ]
+}

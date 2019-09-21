@@ -5,12 +5,32 @@ import Nav from '../components/nav'
 import Layout from '../components/Layout'
 import Landing from '../components/landing'
 import Contact from '../components/contact'
+import 'isomorphic-fetch'
+import Catalogue from '../components/catalogue'
 
-const Home = () => (
-  <Layout>
-    <Landing/>
-    <Contact/>
-  </Layout>
-)
+
+
+class Home extends React.Component{
+  static async getInitialProps(){
+    const res = await fetch('http://localhost:3000/static/data.json');
+    const dummy = await res.json()
+    return {dummy: dummy}
+  }
+
+
+
+
+
+  render(){
+
+    return(
+      <Layout>
+        <Landing/>
+          {console.log(this.props.dummy)}
+        <Contact/>
+      </Layout>
+    )
+  }
+}
 
 export default Home
