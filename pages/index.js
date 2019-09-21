@@ -26,7 +26,7 @@ class Home extends React.Component{
     return(
       <Layout>
         <Landing/>
-          {console.log(this.props.dummy)}
+        <Catalogue data={this.props.dummy}/>
         <Contact/>
       </Layout>
     )

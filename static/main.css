@@ -1,9 +1,33 @@
 body{
   background-color: #f5edda;
 }
+
+.cat-img{
+  width: 50%;
+  height: 20em;
+}
+
+.cat-btn{
+  background: inherit;
+  border: 1px solid  #f5edda;
+  padding: .75em 2.5em .75em 2.5em;
+  color:  #f5edda;
+}
+
 .container{
   height: 75vh;
   padding: 5em;
+}
+
+.prod-tile{
+  padding: 5em;
+  color:  #f5edda;
+}
+
+.prod-tile .row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 p{

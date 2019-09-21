@@ -5,9 +5,9 @@ import Tile from './tile'
 const Catalogue = (props) => (
 
 
-      <div className="container d-flex h-100" id="catalogue">
+      <div className="container-fluid d-flex h-100" id="catalogue">
         <div className="row">
-          <Tile image={props.image} name={props.name} dest={props.dest}/>
+          {props.data.map(product=><Tile key={product.name} image={"/static/images/"+product.image} name={product.name} bg={product.accent}/>)}
         </div>
       </div>
 

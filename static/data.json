@@ -1,7 +1,8 @@
-{
-  "products":[
+
+  [
     {
-      "name":"Peanut butter with sesame",
+      "name":"Peanut butter & Sesame",
+      "image":"jar.png",
       "Lgprice":350,
       "Mdprice":200,
       "accent":"#dc3f32",
@@ -11,7 +12,8 @@
       "starch":"60%"
     },
     {
-      "name":"Peanut butter",
+      "name":"Natural Peanut Butter",
+      "image":"jar3.png",
       "Lgprice":350,
       "Mdprice":200,
       "accent":"#519514",
@@ -21,7 +23,8 @@
       "starch":"21%"
     },
     {
-      "name":"Peanut butter mix with cashew nuts",
+      "name":"Peanut butter & Cashew Nuts",
+      "image":"jar2.png",
       "Lgprice":350,
       "Mdprice":200,
       "accent":"#da8a30",
@@ -31,4 +34,3 @@
       "starch":"21%"
     }
   ]
-}
