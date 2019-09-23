@@ -8,6 +8,7 @@ import Contact from '../components/contact'
 import 'isomorphic-fetch'
 import Modal from '../components/modal'
 import Catalogue from '../components/catalogue'
+import Cart from '../components/cart'
 
 
 
@@ -29,7 +30,9 @@ state={
   vitamins:"",
   minerals:"",
   fattyAcids:"",
-  starch:""
+  starch:"",
+  orders:[],
+  showCart:false
 }
 
 raiseModal=(e)=>{
@@ -54,14 +57,38 @@ dropModal=()=>{
   this.setState({showModal: false});
 }
 
+handleOrder=(e)=>{
+  e.preventDefault();
+  var order={
+    orderNo:e.target.elements.noOfJars.value,
+    orderSize: e.target.elements.size.value,
+    orderImage: e.target.elements.orderImage.value,
+    orderName:e.target.elements.orderName.value
+  }
+
+  this.setState({
+    orders: [...this.state.orders, order]
+  },()=>{
+    console.log(this.state.orders);
+  })
+}
 
 
+showCart=()=>{
+  this.dropModal();
+  this.setState({showCart:true});
+}
+
+dropCart=()=>{
+  this.setState({showCart: false});
+}
 
   render(){
 
     return(
       <Layout>
         <Landing/>
+        {this.state.showCart && <Cart orders={this.state.orders} dropCart={this.dropCart}/>}
         {this.state.showModal && <Modal
           dropModal={this.dropModal}
           image={this.state.image}
@@ -72,7 +99,9 @@ dropModal=()=>{
           starch={this.state.starch}
           name={this.state.name}
           Lgprice={this.state.Lgprice}
-          Mdprice={this.state.Mdprice}/>
+          Mdprice={this.state.Mdprice}
+          handleOrder={this.handleOrder}
+          showCart={this.showCart}/>
       }
         <Catalogue data={this.props.dummy} raiseModal={this.raiseModal} />
         <Contact/>
