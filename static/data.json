@@ -8,7 +8,7 @@
       "accent":"#dc3f32",
       "vitamins":"20%",
       "minerals":"20%",
-      "fatty acids":"50%",
+      "fattyAcids":"50%",
       "starch":"60%"
     },
     {
@@ -19,7 +19,7 @@
       "accent":"#519514",
       "vitamins":"20%",
       "minerals":"10%",
-      "fatty acids":"50%",
+      "fattyAcids":"50%",
       "starch":"21%"
     },
     {
@@ -30,7 +30,7 @@
       "accent":"#da8a30",
       "vitamins":"20%",
       "minerals":"10%",
-      "fatty acids":"50%",
+      "fattyAcids":"50%",
       "starch":"21%"
     }
   ]

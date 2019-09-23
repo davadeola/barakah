@@ -19,11 +19,35 @@ class Home extends React.Component{
   }
 
 state={
-  showModal: false
+  showModal: false,
+  image:'',
+  name:"",
+  image:"",
+  Lgprice:'',
+  Mdprice:'',
+  accent:"",
+  vitamins:"",
+  minerals:"",
+  fattyAcids:"",
+  starch:""
 }
 
-raiseModal=()=>{
-  this.setState({showModal: true});
+raiseModal=(e)=>{
+  e.preventDefault();
+  this.setState({
+    showModal: true,
+    image:e.target.elements.image.value,
+    name:e.target.elements.name.value,
+    Lgprice:e.target.elements.Lgprice.value,
+    Mdprice:e.target.elements.Mdprice.value,
+    accent:e.target.elements.bg.value,
+    vitamins:e.target.elements.vitamins.value,
+    minerals:e.target.elements.minerals.value,
+    fattyAcids:e.target.elements.fattyAcids.value,
+    starch:e.target.elements.starch.value
+
+  });
+
 }
 
 dropModal=()=>{
@@ -38,7 +62,18 @@ dropModal=()=>{
     return(
       <Layout>
         <Landing/>
-        {this.state.showModal && <Modal dropModal={this.dropModal}/>}
+        {this.state.showModal && <Modal
+          dropModal={this.dropModal}
+          image={this.state.image}
+          accent={this.state.accent}
+          vitamins={this.state.vitamins}
+          minerals={this.state.minerals}
+          fattyAcids={this.state.fattyAcids}
+          starch={this.state.starch}
+          name={this.state.name}
+          Lgprice={this.state.Lgprice}
+          Mdprice={this.state.Mdprice}/>
+      }
         <Catalogue data={this.props.dummy} raiseModal={this.raiseModal} />
         <Contact/>
       </Layout>

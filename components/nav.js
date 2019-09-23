@@ -9,7 +9,7 @@ const Nav = () => (
         <img src="static/images/logo.png" alt=""/>
     </div>
     <div className="menu-options">
-        <a href="#">Products</a>
+        <a href="#product">Products</a>
         <a href="#">Contact</a>
     </div>
   </nav>

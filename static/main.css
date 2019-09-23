@@ -4,7 +4,7 @@ body{
 
 .cat-img{
   width: 50%;
-  height: 20em;
+  height: 17.5rem;
 }
 
 .cat-btn{
@@ -16,7 +16,7 @@ body{
 
 .container{
   height: 75vh;
-  padding: 5em;
+  /* padding: 5em; */
 }
 
 .prod-tile{
@@ -72,7 +72,7 @@ p{
 
 
 .display-1{
-  font-size: 6.5rem;
+  font-size: 6.5em;
   font-weight: bold;
 }
 
@@ -95,5 +95,12 @@ p{
 .modal-box{
   height: 35em;
   width: 100%;
+  /* padding: 5%; */
   background-color: white;
+}
+
+.modal-img{
+  width: 50%;
+  margin: 15% auto;
+
 }
