@@ -10,7 +10,8 @@ const Nav = () => (
     </div>
     <div className="menu-options">
         <a href="#product">Products</a>
-        <a href="#">Contact</a>
+        <a href="#contact">Contact</a>
+        <button className="btn">My cart</button>
     </div>
   </nav>
 )

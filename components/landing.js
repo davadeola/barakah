@@ -7,7 +7,7 @@ import Layout from '../components/Layout'
 const Landing = () => (
 
 
-      <div className="container d-flex h-100">
+      <div className="container landing">
         <div className="row justify-content-center align-self-center">
           <div className="col-md-6">
             <h1 className="display-1">Natural & healthy</h1>
