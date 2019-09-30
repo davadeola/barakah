@@ -1,7 +1,7 @@
 
   [
     {
-      "name":"Peanut butter & Sesame",
+      "name":"Peanut Butter & Sesame",
       "image":"jar.png",
       "Lgprice":350,
       "Mdprice":200,
@@ -23,7 +23,7 @@
       "starch":"21%"
     },
     {
-      "name":"Peanut butter & Cashew Nuts",
+      "name":"Peanut Butter & Cashew Nuts",
       "image":"jar2.png",
       "Lgprice":350,
       "Mdprice":200,

@@ -131,10 +131,24 @@ p{
 
 
 .order-item{
-  border-bottom: .25px solid grey;
+  border-bottom: .2px solid grey;
 }
 
 .cart-img{
   width: 25%;
   margin-top: 5%;
+}
+
+.menu-layout{
+  background-color: grey;
+  height: 30rem;
+  padding: .5em;
+
+}
+
+.menu-card{
+  padding: .75em;
+  margin-bottom: 1.5em;
+  cursor: pointer;
+  color:  #22183c;
 }

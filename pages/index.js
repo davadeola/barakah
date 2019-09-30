@@ -69,6 +69,7 @@ handleOrder=(e)=>{
   this.setState({
     orders: [...this.state.orders, order]
   },()=>{
+    alert("Added your item")
     console.log(this.state.orders);
   })
 }

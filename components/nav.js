@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import router from 'next/router'
 
 
 
@@ -9,9 +10,11 @@ const Nav = () => (
         <img src="static/images/logo.png" alt=""/>
     </div>
     <div className="menu-options">
+        <a href="index">Home</a>
         <a href="#catalogue">Products</a>
         <a href="#contact">Contact</a>
         <button className="btn">My cart</button>
+        <button className="btn" onClick={()=>router.push("/login")}>Login</button>
     </div>
   </nav>
 )
