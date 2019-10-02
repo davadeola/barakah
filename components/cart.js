@@ -16,14 +16,18 @@ const Cart= (props) => (
       </div>
     </div>
 
+    <div className="cart-content">
+
     {props.orders.map(order=><OrderItem
-      key={order.orderName}
+      key={order.orderId}
       orderName={order.orderName}
       orderImage={order.orderImage}
       orderSize={order.orderSize}
       orderNo={order.orderNo}
+      orderId={order.orderId}
+      deleteCartItem={props.deleteCartItem}
       />)}
-
+    </div>
   </div>
 )
 

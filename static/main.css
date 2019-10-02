@@ -119,19 +119,23 @@ p{
 
 
 .cart{
-  width: 50vw;
+  width: 100%;
   position: fixed;
   top:0;
   right: 0;
   background-color: #f5edda;
   height: 100vh;
   z-index: 100000;
-  border: 1px solid grey;
+
 }
 
+.cart-content{
+  overflow-y: scroll;
+  height: 100%;
+}
 
 .order-item{
-  border-bottom: .2px solid grey;
+  margin-bottom: 2em;
 }
 
 .cart-img{

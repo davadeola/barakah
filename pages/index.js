@@ -9,6 +9,7 @@ import 'isomorphic-fetch'
 import Modal from '../components/modal'
 import Catalogue from '../components/catalogue'
 import Cart from '../components/cart'
+import uuid from  'uuid'
 
 
 
@@ -57,14 +58,18 @@ dropModal=()=>{
   this.setState({showModal: false});
 }
 
+
+
 handleOrder=(e)=>{
   e.preventDefault();
   var order={
     orderNo:e.target.elements.noOfJars.value,
     orderSize: e.target.elements.size.value,
     orderImage: e.target.elements.orderImage.value,
-    orderName:e.target.elements.orderName.value
+    orderName:e.target.elements.orderName.value,
+    orderId: uuid.v4()
   }
+
 
   this.setState({
     orders: [...this.state.orders, order]
@@ -84,12 +89,18 @@ dropCart=()=>{
   this.setState({showCart: false});
 }
 
+deleteCartItem=(orderId)=>{
+  const orders = this.state.orders.filter(order=> order.orderId !== orderId);
+  this.setState({orders: orders});
+}
+
   render(){
 
     return(
       <Layout>
+        <Nav   showCart={this.showCart}/>
         <Landing/>
-        {this.state.showCart && <Cart orders={this.state.orders} dropCart={this.dropCart}/>}
+        {this.state.showCart && <Cart orders={this.state.orders} dropCart={this.dropCart} deleteCartItem={this.deleteCartItem}/>}
         {this.state.showModal && <Modal
           dropModal={this.dropModal}
           image={this.state.image}

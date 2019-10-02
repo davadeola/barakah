@@ -36,7 +36,7 @@ const Modal = (props) => (
           <h1 className="display-5 font-weight-bold">Place an order</h1>
           <form onSubmit={props.handleOrder}>
               <div className="form-group">
-                <input type="number" name="noOfJars" className="form-control" placeholder="Number of jars" min="0"/>
+                <input type="number" name="noOfJars" className="form-control" placeholder="Number of jars" min="0" required/>
               </div>
 
               <div className="form-group">
@@ -49,7 +49,7 @@ const Modal = (props) => (
 
 
               <div className="form-group">
-                <select name="size" className="form-control">
+                <select name="size" className="form-control" required>
                   <option value="">Please select a jar size</option>
                   <option value="medium">Medium</option>
                   <option value="large">Large</option>
