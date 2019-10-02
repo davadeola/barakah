@@ -12,7 +12,7 @@ const Cart= (props) => (
   </div>
     <div className="row">
       <div className="col-md-12">
-        <h1 className="display-5 font-weight-bold text-center">My cart</h1>
+        <h1 className="display-5  text-center">My cart</h1>
       </div>
     </div>
 
@@ -27,6 +27,11 @@ const Cart= (props) => (
       orderId={order.orderId}
       deleteCartItem={props.deleteCartItem}
       />)}
+    </div>
+    <div className="row">
+      <div className="col-md-12 text-center">
+        <button className="btn btn-success">Check out</button>
+      </div>
     </div>
   </div>
 )

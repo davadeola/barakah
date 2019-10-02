@@ -10,6 +10,7 @@ import Modal from '../components/modal'
 import Catalogue from '../components/catalogue'
 import Cart from '../components/cart'
 import uuid from  'uuid'
+import Checkout from '../components/checkout'
 
 
 
@@ -33,7 +34,8 @@ state={
   fattyAcids:"",
   starch:"",
   orders:[],
-  showCart:false
+  showCart:false,
+  totalPrice:0
 }
 
 raiseModal=(e)=>{
@@ -117,6 +119,7 @@ deleteCartItem=(orderId)=>{
       }
         <Catalogue data={this.props.dummy} raiseModal={this.raiseModal} />
         <Contact/>
+        <Checkout/>
       </Layout>
     )
   }

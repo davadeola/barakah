@@ -19,7 +19,7 @@ const Modal = (props) => (
         </div>
         <div className="col-md-5">
           <div>
-            <h1 className="display-5 font-weight-bold">Nutritional Value</h1>
+            <h1 className="display-5">Nutritional Value</h1>
             <p>Vitamins: <span style={{color:props.accent}}>{props.vitamins}</span></p>
             <p>Minerals: <span style={{color:props.accent}}>{props.minerals}</span></p>
             <p>Fatty Acids: <span style={{color:props.accent}}>{props.fattyAcids}</span></p>
@@ -27,13 +27,13 @@ const Modal = (props) => (
           </div>
 
           <div>
-            <h1 className="display-5 font-weight-bold">Price</h1>
+            <h1 className="display-5 ">Price</h1>
             <p>Large: <span style={{color:props.accent}}> Kshs.{props.Lgprice}</span></p>
             <p>Medium: <span style={{color:props.accent}}> Kshs.{props.Mdprice}</span></p>
           </div>
         </div>
         <div>
-          <h1 className="display-5 font-weight-bold">Place an order</h1>
+          <h1 className="display-5 ">Place an order</h1>
           <form onSubmit={props.handleOrder}>
               <div className="form-group">
                 <input type="number" name="noOfJars" className="form-control" placeholder="Number of jars" min="0" required/>
