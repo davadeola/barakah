@@ -1,39 +1,53 @@
 import React from 'react'
 
 const Checkout =(props)=>(
-  <div className="container">
+  <div className="modal-container">
+  <div className="modal-box">
+  <div className="container-fluid ">
+
     <div className="row">
-      <div className="col-md-6"></div>
+      <div className="col-md-12">
+        <h1 className="display-5 text-center font-weight-bold">Checkout</h1>
+      </div>
+      <div className="col-md-12 text-right">
+        <button className="btn" onClick={props.dropModal}><img src="/static/images/del.png" className="icons"/></button>
+      </div>
+    </div>
+    <div className="row">
+      <div className="col-md-6">
+        <h1>Total Price</h1>
+        <h1> Kshs. {props.totalPrice}</h1>
+      </div>
       <div className="col-md-6">
       <form>
         <div className="form-row">
           <div className="form-group col-md-6">
-            <label for="fullName">Full Name</label>
+            <label htmlFor="fullName">Full Name</label>
             <input type="text" className="form-control" id="fullName" placeholder="Full name" name='fullName'/>
           </div>
           <div className="form-group col-md-6">
-            <label for="email">Email</label>
+            <label htmlFor="email">Email</label>
             <input type="email" className="form-control" id="email" placeholder="Email" name='email'/>
           </div>
 
         </div>
         <div className="form-group">
-          <label for="address">Address</label>
+          <label htmlFor="address">Address</label>
           <input type="text" className="form-control" id="address" placeholder="1234 Main St" name='address'/>
         </div>
         <div className="form-group">
-          <label for="phoneNum">Phone Number</label>
+          <label htmlFor="phoneNum">Phone Number</label>
           <input type="text" className="form-control" id="phoneNum" placeholder="+2547123456789" name='phoneNum'/>
         </div>
         <div className="form-row">
           <div className="form-group col-md-6">
-            <label for="inputCity">City</label>
-            <input type="text" className="form-control" id="inputCity"/>
+            <label htmlFor="country">Country</label>
+            <input type="text" className="form-control" id="country" name='country'/>
           </div>
           <div className="form-group col-md-6">
-            <label for="payOpt">Payment option</label>
+            <label htmlFor="payOpt">Payment option</label>
             <select id="payOpt" className="form-control" name='payOpt'>
-              <option selected>Mpesa</option>
+              <option defaultValue>Mpesa</option>
               <option>Paypal</option>
                 <option>MasterCard</option>
                   <option>Visa</option>
@@ -47,6 +61,8 @@ const Checkout =(props)=>(
       </form>
     </div>
   </div>
+</div>
+</div>
 </div>
 
 )

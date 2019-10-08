@@ -21,7 +21,7 @@ body{
   color:  #f5edda;
 }
 
-.container{
+.container, .container-fluid{
   height: 75vh;
   /* padding: 5em; */
 }
@@ -40,7 +40,7 @@ body{
 }
 
 p{
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 .menu-options{
@@ -60,9 +60,9 @@ p{
 }
 #menu-bar{
   height: 3.5em;
-  padding-top: -10em;
+  /* margin-top: -5em; */
   padding-left: 1em;
-  position: fixed;
+  /* position: fixed; */
   z-index: 1000;
   display: flex;
   justify-content: space-between;
@@ -132,6 +132,7 @@ p{
 .cart-content{
   overflow-y: scroll;
   height: 70%;
+  width: 75%;
   overflow-x: hidden;
 }
 
@@ -140,8 +141,12 @@ p{
 }
 
 .cart-img{
-  width: 25%;
+  width: 50%;
   margin-top: 5%;
+}
+
+.cart-text p{
+  margin: 0;
 }
 
 .menu-layout{
@@ -156,4 +161,9 @@ p{
   margin-bottom: 1.5em;
   cursor: pointer;
   color:  #22183c;
+}
+
+
+.icons{
+  width: 25px;
 }

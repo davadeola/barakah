@@ -4,15 +4,17 @@ import OrderItem from './orderItem'
 
 
 const Cart= (props) => (
-  <div className="container cart" id="cart">
+  <div className="modal-container">
+  <div className="modal-box">
+  <div className="container-fluid" id="cart">
   <div className="row">
   <div className="col-md-12 text-right">
-    <button className="btn" onClick={props.dropCart}>Close</button>
+    <button className="btn" onClick={props.dropCart}><img src="/static/images/del.png" className="icons"/></button>
   </div>
   </div>
     <div className="row">
       <div className="col-md-12">
-        <h1 className="display-5  text-center">My cart</h1>
+        <h1 className="display-5 font-weight-bold text-center">My cart</h1>
       </div>
     </div>
 
@@ -30,10 +32,12 @@ const Cart= (props) => (
     </div>
     <div className="row">
       <div className="col-md-12 text-center">
-        <button className="btn btn-success">Check out</button>
+        <button className="btn btn-success" onClick={props.showCheckout}>Next to payment</button>
       </div>
     </div>
   </div>
+</div>
+</div>
 )
 
 export default Cart

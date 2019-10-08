@@ -23,6 +23,7 @@ class Home extends React.Component{
 
 state={
   showModal: false,
+  showCheckout: false,
   image:'',
   name:"",
   image:"",
@@ -52,8 +53,27 @@ raiseModal=(e)=>{
     fattyAcids:e.target.elements.fattyAcids.value,
     starch:e.target.elements.starch.value
 
+  },()=>{
+    console.log(this.state.orders);
   });
 
+}
+
+
+calculateTPrice=()=>{
+    let price=0;
+  this.state.orders.forEach(order=>{
+    if (order.orderSize=="medium") {
+      price+=parseInt(order.orderNo)*parseInt(order.Mdprice);
+    } else {
+      price+=parseInt(order.orderNo)*parseInt(order.Lgprice);
+    }
+
+  })
+
+  this.setState({totalPrice: price},()=>{
+    console.log(this.state.totalPrice);
+  });
 }
 
 dropModal=()=>{
@@ -69,6 +89,8 @@ handleOrder=(e)=>{
     orderSize: e.target.elements.size.value,
     orderImage: e.target.elements.orderImage.value,
     orderName:e.target.elements.orderName.value,
+    Lgprice:e.target.elements.Lgprice.value,
+    Mdprice:e.target.elements.Mdprice.value,
     orderId: uuid.v4()
   }
 
@@ -77,7 +99,7 @@ handleOrder=(e)=>{
     orders: [...this.state.orders, order]
   },()=>{
     alert("Added your item")
-    console.log(this.state.orders);
+
   })
 }
 
@@ -85,6 +107,16 @@ handleOrder=(e)=>{
 showCart=()=>{
   this.dropModal();
   this.setState({showCart:true});
+
+}
+
+showCheckout=()=>{
+  this.setState({showCheckout:true});
+    this.calculateTPrice()
+}
+
+dropCheckout=()=>{
+  this.setState({showCheckout: false});
 }
 
 dropCart=()=>{
@@ -93,16 +125,19 @@ dropCart=()=>{
 
 deleteCartItem=(orderId)=>{
   const orders = this.state.orders.filter(order=> order.orderId !== orderId);
-  this.setState({orders: orders});
+  this.setState({orders: orders}, ()=>{
+    console.log(this.state.orders);
+  });
+
 }
 
   render(){
 
     return(
       <Layout>
-        <Nav   showCart={this.showCart}/>
+        <Nav   showCart={this.showCart} />
         <Landing/>
-        {this.state.showCart && <Cart orders={this.state.orders} dropCart={this.dropCart} deleteCartItem={this.deleteCartItem}/>}
+        {this.state.showCart && <Cart orders={this.state.orders} dropCart={this.dropCart} showCheckout={this.showCheckout} deleteCartItem={this.deleteCartItem}/>}
         {this.state.showModal && <Modal
           dropModal={this.dropModal}
           image={this.state.image}
@@ -119,7 +154,9 @@ deleteCartItem=(orderId)=>{
       }
         <Catalogue data={this.props.dummy} raiseModal={this.raiseModal} />
         <Contact/>
-        <Checkout/>
+
+      {this.state.showCheckout && <Checkout totalPrice={this.state.totalPrice}/>}
+
       </Layout>
     )
   }

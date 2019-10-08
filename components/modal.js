@@ -5,10 +5,10 @@ import React from 'react'
 const Modal = (props) => (
   <div className="modal-container">
   <div className="modal-box">
-    <div className="container">
+    <div className="containe-fluid">
       <div className="row">
         <div className="col-md-12 text-right">
-          <button className="btn" onClick={props.dropModal}>Close</button>
+          <button className="btn" onClick={props.dropModal}><img src="/static/images/del.png" className="icons"/></button>
         </div>
       </div>
       <div className="row">
@@ -47,6 +47,13 @@ const Modal = (props) => (
                 <input type="text" name="orderName" value={props.name} className="form-control"  hidden readOnly/>
               </div>
 
+              <div className="form-group">
+                <input type="number" name="Lgprice" value={props.Lgprice} className="form-control"  hidden readOnly/>
+              </div>
+
+              <div className="form-group">
+                <input type="number" name="Mdprice" value={props.Mdprice} className="form-control"  hidden readOnly/>
+              </div>
 
               <div className="form-group">
                 <select name="size" className="form-control" required>

@@ -19,8 +19,8 @@ const Tile = (props) => (
           <input type="text" name="image" value={props.image}  hidden readOnly/>
           <input type="text" name="name" value={props.name}  hidden readOnly/>
           <input type="text" name="bg" value={props.bg}  hidden readOnly/>
-          <input type="text" name="Lgprice" value={props.Lgprice} hidden readOnly/>
-          <input type="text" name="Mdprice" value={props.Mdprice} hidden readOnly/>
+          <input type="number" name="Lgprice" value={props.Lgprice} hidden readOnly/>
+          <input type="number" name="Mdprice" value={props.Mdprice} hidden readOnly/>
           <input type="text" name="vitamins" value={props.vitamins} hidden readOnly/>
           <input type="text" name="minerals" value={props.minerals} hidden readOnly/>
           <input type="text" name="fattyAcids" value={props.fattyAcids} hidden readOnly/>
