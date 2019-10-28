@@ -11,7 +11,8 @@ import Catalogue from '../components/catalogue'
 import Cart from '../components/cart'
 import uuid from  'uuid'
 import Checkout from '../components/checkout'
-
+import PlaceOrder from '../components/placeOrder'
+import emailjs from 'emailjs-com';
 
 
 class Home extends React.Component{
@@ -24,6 +25,7 @@ class Home extends React.Component{
 state={
   showModal: false,
   showCheckout: false,
+  showPlaceOrder: false,
   image:'',
   name:"",
   image:"",
@@ -37,6 +39,10 @@ state={
   orders:[],
   showCart:false,
   totalPrice:0
+}
+
+componentDidMount(){
+  emailjs.init("user_HkG7gfr9YOaz6VHWoHSnT")
 }
 
 raiseModal=(e)=>{
@@ -80,6 +86,15 @@ dropModal=()=>{
   this.setState({showModal: false});
 }
 
+showPlaceOrder=()=>{
+  this.dropModal();
+  this.setState({showPlaceOrder: true});
+}
+
+dropPlaceOrder=()=>{
+  this.setState({showPlaceOrder: false});
+}
+
 
 
 handleOrder=(e)=>{
@@ -105,14 +120,55 @@ handleOrder=(e)=>{
 
 
 showCart=()=>{
-  this.dropModal();
+  this.dropPlaceOrder();
   this.setState({showCart:true});
+
+}
+
+// genOrderDetails=()=>{
+//   this.state.orders.forEach(item=>{
+//       item.
+//   })
+// }
+
+handlePurchase=(e)=>{
+  e.preventDefault();
+  if (this.state.totalPrice<= 0) {
+    alert("Please place an order to continue")
+  } else {
+
+    var conOrder={
+      totalPrice: this.state.totalPrice,
+      conOrder: this.state.orders,
+      email: e.target.elements.email.value,
+      fullName: e.target.elements.fullName.value,
+      address: e.target.elements.address.value,
+      phoneNum: e.target.elements.phoneNum.value,
+      country: e.target.elements.country.value,
+      payOpt: e.target.elements.payOpt.value,
+      timeOrdered: Date()
+    }
+
+    emailjs.send(
+      'default_service', 'barakah', {order_name: conOrder.fullName, reply_to: conOrder.email, totalPrice: conOrder.totalPrice, timeOrdered: conOrder.timeOrdered, country: conOrder.country, payOpt: conOrder.payOpt}
+    ).then(res=>{
+      console.log("Success");
+      alert("Thanks for placing an order. Check your email for confirmation")
+    }).catch(err=>{
+      console.error("You have failed this city");
+      console.log(err);
+    })
+
+
+
+  }
 
 }
 
 showCheckout=()=>{
   this.setState({showCheckout:true});
     this.calculateTPrice()
+    this.dropCart()
 }
 
 dropCheckout=()=>{
@@ -150,12 +206,29 @@ deleteCartItem=(orderId)=>{
           Lgprice={this.state.Lgprice}
           Mdprice={this.state.Mdprice}
           handleOrder={this.handleOrder}
-          showCart={this.showCart}/>
+          showPlaceOrder={this.showPlaceOrder}/>
       }
+
+
+
+      {this.state.showPlaceOrder && <PlaceOrder
+        dropModal={this.dropPlaceOrder}
+        image={this.state.image}
+        accent={this.state.accent}
+        vitamins={this.state.vitamins}
+        minerals={this.state.minerals}
+        fattyAcids={this.state.fattyAcids}
+        starch={this.state.starch}
+        name={this.state.name}
+        Lgprice={this.state.Lgprice}
+        Mdprice={this.state.Mdprice}
+        handleOrder={this.handleOrder}
+        showCart={this.showCart}/>
+    }
         <Catalogue data={this.props.dummy} raiseModal={this.raiseModal} />
         <Contact/>
 
-      {this.state.showCheckout && <Checkout totalPrice={this.state.totalPrice}/>}
+      {this.state.showCheckout && <Checkout totalPrice={this.state.totalPrice} dropCheckout={this.dropCheckout} handlePurchase={this.handlePurchase}/>}
 
       </Layout>
     )

@@ -10,7 +10,7 @@ const Checkout =(props)=>(
         <h1 className="display-5 text-center font-weight-bold">Checkout</h1>
       </div>
       <div className="col-md-12 text-right">
-        <button className="btn" onClick={props.dropModal}><img src="/static/images/del.png" className="icons"/></button>
+        <button className="btn" onClick={props.dropCheckout}><img src="/static/images/del.png" className="icons"/></button>
       </div>
     </div>
     <div className="row">
@@ -19,7 +19,7 @@ const Checkout =(props)=>(
         <h1> Kshs. {props.totalPrice}</h1>
       </div>
       <div className="col-md-6">
-      <form>
+      <form onSubmit={props.handlePurchase}>
         <div className="form-row">
           <div className="form-group col-md-6">
             <label htmlFor="fullName">Full Name</label>
@@ -47,10 +47,9 @@ const Checkout =(props)=>(
           <div className="form-group col-md-6">
             <label htmlFor="payOpt">Payment option</label>
             <select id="payOpt" className="form-control" name='payOpt'>
-              <option defaultValue>Mpesa</option>
-              <option>Paypal</option>
-                <option>MasterCard</option>
-                  <option>Visa</option>
+              <option defaultValue>On Delivery</option>
+              <option>Mpesa</option>
+
             </select>
           </div>
 

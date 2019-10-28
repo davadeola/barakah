@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "emailjs-com": "^2.4.0",
     "isomorphic-fetch": "^2.2.1",
     "next": "9.0.5",
     "react": "16.9.0",

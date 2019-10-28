@@ -22,7 +22,7 @@ body{
 }
 
 .container, .container-fluid{
-  height: 75vh;
+  height: 75%;
   /* padding: 5em; */
 }
 
@@ -113,10 +113,20 @@ p{
 }
 
 .modal-img{
-  width: 60%;
-  margin: 5% auto;
+  width: 50%;
+  display: block;
+  margin: 0 auto;
 }
 
+.btn-info{
+  background-color: grey;
+  border-color: grey;
+}
+
+.btn-info:hover{
+  background-color: black;
+  border-color: black;
+}
 
 .cart{
   width: 100%;
@@ -166,4 +176,14 @@ p{
 
 .icons{
   width: 25px;
+}
+
+
+.order-img{
+  margin: 0 auto;
+}
+
+form.place-order{
+
+  margin-right: 25%;
 }
