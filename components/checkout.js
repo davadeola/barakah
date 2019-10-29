@@ -53,6 +53,13 @@ const Checkout =(props)=>(
             </select>
           </div>
 
+          <div className="form-group col-md-6">
+
+            <textarea defaultValue={props.orderStatement} hidden name='orderStatement'>
+
+            </textarea>
+          </div>
+
         </div>
         <div className="text-center">
         <button type="submit" className="btn btn-success">PURCHASE</button>

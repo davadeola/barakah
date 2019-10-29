@@ -13,6 +13,7 @@ import uuid from  'uuid'
 import Checkout from '../components/checkout'
 import PlaceOrder from '../components/placeOrder'
 import emailjs from 'emailjs-com';
+import {toast} from 'react-toastify';
 
 
 class Home extends React.Component{
@@ -38,11 +39,13 @@ state={
   starch:"",
   orders:[],
   showCart:false,
-  totalPrice:0
+  totalPrice:0,
+  orderStatement: ''
 }
 
 componentDidMount(){
-  emailjs.init("user_HkG7gfr9YOaz6VHWoHSnT")
+  emailjs.init("user_HkG7gfr9YOaz6VHWoHSnT");
+  toast.configure();
 }
 
 raiseModal=(e)=>{
@@ -113,7 +116,11 @@ handleOrder=(e)=>{
   this.setState({
     orders: [...this.state.orders, order]
   },()=>{
-    alert("Added your item")
+    toast("Added your item", {
+        type: toast.TYPE.SUCCESS,
+        autoClose: 2500
+      });
+
 
   })
 }
@@ -125,16 +132,26 @@ showCart=()=>{
 
 }
 
-// genOrderDetails=()=>{
-//   this.state.orders.forEach(item=>{
-//       item.
-//   })
-// }
+genOrderDetails=()=>{
+  var d=""; var du=[]
+  this.state.orders.forEach((item)=>{
+     d="<br/>Order id: " +item.orderId+ "<br/> Product name:"+ item.orderName+" <br/> Number: "+ item.orderNo+" <br/> Size of jars: "+  item.orderSize
+     du.push(d);
+  })
+
+  this.setState({orderStatement: du.join("<br/><br/><br/>")});
+}
+
 
 handlePurchase=(e)=>{
+
   e.preventDefault();
   if (this.state.totalPrice<= 0) {
-    alert("Please place an order to continue")
+    toast("Please place an order to continue", {
+        type: toast.TYPE.WARNING,
+        autoClose: 2500
+      });
+
   } else {
 
     var conOrder={
@@ -146,14 +163,25 @@ handlePurchase=(e)=>{
       phoneNum: e.target.elements.phoneNum.value,
       country: e.target.elements.country.value,
       payOpt: e.target.elements.payOpt.value,
-      timeOrdered: Date()
+      timeOrdered: Date(),
+      orderStatement: e.target.elements.orderStatement.value
     }
 
+
+
+
+
     emailjs.send(
-      'default_service', 'barakah', {order_name: conOrder.fullName, reply_to: conOrder.email, totalPrice: conOrder.totalPrice, timeOrdered: conOrder.timeOrdered, country: conOrder.country, payOpt: conOrder.payOpt}
+      'default_service', 'barakah', {order_name: conOrder.fullName, reply_to: conOrder.email, totalPrice: conOrder.totalPrice, timeOrdered: conOrder.timeOrdered, country: conOrder.country, payOpt: conOrder.payOpt, order: conOrder.orderStatement
+
+    }
     ).then(res=>{
       console.log("Success");
-      alert("Thanks for placing an order. Check your email for confirmation")
+      toast("Thanks for placing an order. Check your email for confirmation", {
+          type: toast.TYPE.SUCCESS,
+          autoClose: 2500
+        });
+
     }).catch(err=>{
       console.error("You have failed this city");
       console.log(err);
@@ -168,7 +196,8 @@ handlePurchase=(e)=>{
 showCheckout=()=>{
   this.setState({showCheckout:true});
     this.calculateTPrice()
-    this.dropCart()
+    this.dropCart();
+    this.genOrderDetails();
 }
 
 dropCheckout=()=>{
@@ -228,7 +257,7 @@ deleteCartItem=(orderId)=>{
         <Catalogue data={this.props.dummy} raiseModal={this.raiseModal} />
         <Contact/>
 
-      {this.state.showCheckout && <Checkout totalPrice={this.state.totalPrice} dropCheckout={this.dropCheckout} handlePurchase={this.handlePurchase}/>}
+      {this.state.showCheckout && <Checkout orderStatement={this.state.orderStatement} totalPrice={this.state.totalPrice} dropCheckout={this.dropCheckout} handlePurchase={this.handlePurchase}/>}
 
       </Layout>
     )
